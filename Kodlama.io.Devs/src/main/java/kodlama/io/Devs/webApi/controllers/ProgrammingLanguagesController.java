@@ -31,11 +31,16 @@ public class ProgrammingLanguagesController {
 	
 	@GetMapping("/getall")
 	public List<ProgrammingLanguage> getAll(){
-		return this.programmingLanguageService.getAll();}
+		return programmingLanguageService.getAll();}
 
 	@PostMapping("/add")
 	public void add(ProgrammingLanguage programmingLanguage) {
-		programmingLanguageService.add(programmingLanguage);
+		try {
+			programmingLanguageService.add(programmingLanguage);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 	}
 	@DeleteMapping("/delete")
 	public void delete(int id) {
